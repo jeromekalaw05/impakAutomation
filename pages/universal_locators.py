@@ -1,9 +1,6 @@
 from selenium.webdriver.common.by import By
 
-class Locators:
-    def __init__(self, driver):
-        self.driver = driver
-
+class Locators:    
     # URLs
     IMPAK_URL = "https://impak.app/login"
     TEMP_MAIL_URL = "https://temp-mail.io/en"
