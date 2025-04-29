@@ -4,6 +4,7 @@ class Locators:
     # URLs
     IMPAK_URL = "https://impak.app/login"
     TEMP_MAIL_URL = "https://temp-mail.io/en"
+    IMPAK_DASHBOARD_URL = "https://impak.app/dashboard"
 
     # SIGNUP LOCATORS
     SIGNUP_FIRST_NAME_INPUT = (By.ID, "first_name")

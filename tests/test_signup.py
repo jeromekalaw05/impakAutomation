@@ -1,9 +1,13 @@
+import logging
 import time
 import pytest
 from pages.universal_locators import Locators
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
+
+# Setup logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 @pytest.mark.order(1)
 def test_signup(driver, temp_email_store):
@@ -22,15 +26,15 @@ def test_signup(driver, temp_email_store):
         # Save the main tab handle
         main_tab = driver.current_window_handle
 
-        time.sleep(5)
-
         # Open new tab and switch to it
         driver.execute_script("window.open('');")
         driver.switch_to.window(driver.window_handles[1])
 
         # Go to temp-mail and get email
         driver.get(Locators.TEMP_MAIL_URL)
+
         time.sleep(10)
+
         temp_email_field = wait.until(EC.presence_of_element_located(Locators.TEMP_MAIL_EMAIL))
         temp_email = temp_email_field.get_attribute("value")
 
@@ -76,24 +80,20 @@ def test_signup(driver, temp_email_store):
         assert signup_button.is_displayed(), "Signup button is not displayed"
         assert signup_button.is_enabled(), "Sign up button is not clickable"
         signup_button.click()
-
-        time.sleep(3)
         
-        assert driver.current_url == "https://impak.app/dashboard"
+        assert driver.current_url.startswith(Locators.IMPAK_DASHBOARD_URL), "Did not redirected to dashboard after signup"
         
-        time.sleep(2)
-
         logout_button = wait.until(EC.element_to_be_clickable(Locators.LOGOUT_LINK_BUTTON))
         assert logout_button.is_displayed(), "Logout button is not visible"
         assert logout_button.is_enabled(), "Logout button is not clickable"
         logout_button.click()
 
-        assert driver.current_url == "https://impak.app/login", "Logout is not successful"
+        assert driver.current_url.startswith(Locators.IMPAK_URL), "Not redirected to login after logout"
 
     except TimeoutException as e:
-        print(f"TimeoutException: {str(e)}")
+        logging.exception(f"TimeoutException: {str(e)}")
         raise  # Re-raise the exception to stop the test in case of failure
 
     except Exception as e:
-        print(f"Exception occurred: {str(e)}")
+        logging.exception(f"Exception occurred: {str(e)}")
         raise  # Re-raise the exception to stop the test in case of failure
