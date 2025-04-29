@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-class Locators:    
+class Locators: 
     # URLs
     IMPAK_URL = "https://impak.app/login"
     TEMP_MAIL_URL = "https://temp-mail.io/en"
@@ -23,8 +23,9 @@ class Locators:
     LOGIN_EMAIL = (By.ID, "email")
     LOGIN_PASSWORD = (By.ID, "password")
     LOGIN_BUTTON = (By.XPATH, "//button[contains(text(), 'Sign in')]")
+    LOGIN_ERROR_MESSAGE = (By.XPATH, "//div[contains(text(),'Whoops! Something went wrong.')]")
 
     # Default test values
-    SIGNUP_FIRST_NAME_VALUE = "Test"
-    SIGNUP_LAST_NAME_VALUE = "Name"
+    SIGNUP_FIRST_NAME_VALUE = "For"
+    SIGNUP_LAST_NAME_VALUE = "Testing"
     SIGNUP_PASSWORD_VALUE = "Password123"
