@@ -8,7 +8,7 @@ def driver():
     driver.maximize_window()
 
     yield driver
-    driver.quit()
+    # driver.quit()
 
 @pytest.fixture(scope="session")
 def temp_email_store():

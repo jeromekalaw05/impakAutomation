@@ -88,7 +88,9 @@ def test_signup(driver, temp_email_store):
         assert logout_button.is_enabled(), "Logout button is not clickable"
         logout_button.click()
 
-        assert driver.current_url.startswith(Locators.IMPAK_URL), "Not redirected to login after logout"
+        time.sleep(2)
+
+        assert driver.current_url == Locators.IMPAK_URL, "Not redirected to login after logout"
 
     except TimeoutException as e:
         logging.exception(f"TimeoutException: {str(e)}")
