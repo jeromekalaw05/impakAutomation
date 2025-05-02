@@ -37,7 +37,9 @@ def test_add_employee(driver):
         invite_button = wait.until(EC.element_to_be_clickable(Locators.EMPLOYEE_INVITE_BTN))
         assert invite_button.is_displayed(), "Invite button is displayed"
         assert invite_button.is_enabled(), "Invite button is clickable"
-        invite_button.click()        
+        invite_button.click()
+
+        wait.until(EC.element_to_be_clickable(Locators.MODAL_CLOSE)).click()
 
     except TimeoutException as e:
         logging.exception(f"TimeoutException: {str(e)}")

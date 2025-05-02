@@ -57,3 +57,22 @@ class Locators:
     EMPLOYEE_EMAIL_VALUE = "test@abc.com"
     EMPLOYEE_FIRSTNAME_VALUE = "Random"
     EMPLOYEE_LASTNAME_VALUE = "Testing"
+
+    # ADD SURVEY LOCATORS
+    SIDEBAR_SURVEYS = By.XPATH, "//span[contains(text(), 'Surveys')]"
+    SIDEBAR_ONGOING = By.XPATH, "//a[span[text()='Ongoing']]"
+    CREATE_SURVEY_BTN = By.XPATH, "//button[span[text()='Create Survey']]"
+    SURVEY_OPTION = By.XPATH, "//a[@href='/frameworks']"
+    ONBOARD_BTN = By.XPATH, "//button[div[text()='ONBOARD']]"
+    USE_BTN = By.XPATH, "//a[normalize-space(text())='Use']"
+    SETUP_BTN = By.XPATH, "//div[h1[contains(text(), '1. Setup')]]"
+    SURVEY_NAME = By.ID, "name"
+    SUBMISSION = By.ID, "countAllowedSubmissions"
+    RESPONDENTS_BTN = By.XPATH, "//div[h1[contains(text(), '2. Respondents')]]"
+    TOGGLE_PUBLIC = By.XPATH, "//div[@class='w-10 h-4 bg-gray-400 rounded-full shadow-inner']"
+    PUBLISH_BTN = By.XPATH, "//button[contains(text(), 'Publish')]"
+    PUBLISH_CONFIRM_BTN = By.XPATH, "//button[contains(@class, 'swal2-confirm') and text()='Yes']"
+    MARK_AS_DONE_BTN = By.XPATH, "//button[contains(@class, 'swal2-confirm') and contains(text(), 'Mark as Completed')]"
+
+    SURVEY_NAME_VALUE = "Test Survey"
+    SUBMISSION_VALUE = "5"
