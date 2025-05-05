@@ -40,7 +40,7 @@ class Locators:
 
     # ADD EMPLOYEE LOCATORS
     MODAL = (By.ID, "feedback-modal")
-    MODAL_CLOSE = (By.XPATH, "//button[@class='text-slate-400  hover:text-slate-500' and .//div[text()='Close']]")
+    MODAL_CLOSE = (By.XPATH, "//div[@id='feedback-modal']//button[contains(@class, 'text-slate-400')]")
     SIDEBAR_EMPLOYEE = (By.XPATH, "//a[.//span[normalize-space(text())='Employees']]")
     EMPLOYEE_MODULE = (By.XPATH, "//a[@href='https://upup-tech.impak.app/employee' and .//span[normalize-space(text())='Employees']]")
     ADD_EMPLOYEE_BTN = (By.CSS_SELECTOR, "button.p-1.5.rounded.border.border-slate-200.shadow-sm.ml-2")
@@ -48,7 +48,7 @@ class Locators:
     EMPLOYEE_FIRSTNAME_FIELD = (By.CSS_SELECTOR, "input[type='text'][wire\:model='invites.0.first_name']")
     EMPLOYEE_LASTNAME_FIELD = (By.CSS_SELECTOR, "input[type='text'][wire\:model='invites.0.last_name']")
     EMPLOYEE_INVITE_BTN = (By.XPATH, "//button[@type='submit' and normalize-space(text())='Invite']")
-    SUCCESS_ADD_MESSAGE = (By.XPATH, "//div[@id='swal2-title' and contains(text(), 'Employees invited!')]")
+    SUCCESS_ADD_MESSAGE = (By.XPATH, "//h2[contains(@class, 'swal2-title')]")
 
     # ADD EMPLOYEE LOCATORS IF NEW ACCOUNT
     ADD_YOUR_EMPLOYEES = (By.XPATH, "//div[@class='flex items-center' and .//h3[text()='Add your employees']]")
@@ -59,8 +59,9 @@ class Locators:
     EMPLOYEE_LASTNAME_VALUE = "Testing"
 
     # ADD SURVEY LOCATORS
-    SIDEBAR_SURVEYS = By.XPATH, "//span[contains(text(), 'Surveys')]"
-    SIDEBAR_ONGOING = By.XPATH, "//a[span[text()='Ongoing']]"
+    SIDEBAR_DASHBOARD = By.XPATH, "//li[a//span[text()='Dashboard']]"
+    SIDEBAR_SURVEYS = By.XPATH, "//li[a//span[text()='Surveys']]"
+    SIDEBAR_ONGOING = By.XPATH, "//li[a//span[text()='Surveys']]//a[.//span[text()='Ongoing']]"
     CREATE_SURVEY_BTN = By.XPATH, "//button[span[text()='Create Survey']]"
     SURVEY_OPTION = By.XPATH, "//a[@href='/frameworks']"
     ONBOARD_BTN = By.XPATH, "//button[div[text()='ONBOARD']]"
