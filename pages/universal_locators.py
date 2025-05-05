@@ -76,3 +76,19 @@ class Locators:
 
     SURVEY_NAME_VALUE = "Test Survey"
     SUBMISSION_VALUE = "5"
+
+    # GROUP LOCATORS
+    SIDEBAR_COMMUNITY = By.XPATH, "//span[text()='Community']" 
+    SIDEBAR_GROUPS = By.XPATH, "//a[.//span[text()='Groups']]"  
+    CREATE_GROUP_BUTTON = By.XPATH, "//button[text()='Create']" 
+    GROUP_NAME_INPUT_FIELD = By.XPATH, "//input[@placeholder='Group Name']"  
+    GROUP_LEADER_DROPDOWN = By.XPATH, "//select[@placeholder='Select Group Leader']"  
+    ADD_NEW_GROUP_BUTTON = By.XPATH, "//button[text()='Add New']"  
+
+    # DEPARTMENT LOCATORS
+    SIDEBAR_COMMUNITY = (By.XPATH, "//span[text()='Community']")
+    SIDEBAR_DEPARTMENTS = (By.XPATH, "//a[.//span[text()='Departments']]")
+    CREATE_BUTTON = (By.XPATH, "//button[text()='Create']")
+    DEPARTMENT_NAME_INPUT_FIELD = (By.XPATH, "//input[@placeholder='Department Name']") 
+    DEPARTMENT_HEAD_DROPDOWN = (By.XPATH, "//select[@placeholder='Select Department Head']")
+    ADD_NEW_DEPARTMENT_BUTTON = (By.XPATH, "//button[text()='Add New']")
