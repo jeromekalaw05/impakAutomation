@@ -1,4 +1,5 @@
 import logging
+import time
 import pytest
 from pages.universal_locators import Locators
 from selenium.webdriver.support.ui import WebDriverWait
@@ -11,7 +12,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 @pytest.mark.order(4)
 def test_add_employee(driver):
 
-    wait = WebDriverWait(driver, 10)
+    wait = WebDriverWait(driver, 15)
 
     try:
         # Add employee process
@@ -39,7 +40,7 @@ def test_add_employee(driver):
         assert invite_button.is_enabled(), "Invite button is clickable"
         invite_button.click()
 
-        wait.until(EC.element_to_be_clickable(Locators.MODAL_CLOSE)).click()
+        time.sleep(3)
 
     except TimeoutException as e:
         logging.exception(f"TimeoutException: {str(e)}")

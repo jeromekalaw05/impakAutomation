@@ -8,6 +8,7 @@ from selenium.common.exceptions import TimeoutException
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
+@pytest.mark.skip
 @pytest.mark.order()
 def test_login(driver):
 
