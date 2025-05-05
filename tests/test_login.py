@@ -46,10 +46,6 @@ def test_login(driver, temp_email_store):
             # If redirected to dashboard, successful login
             assert driver.current_url.startswith(Locators.IMPAK_DASHBOARD_URL), "Login successful"
 
-    except TimeoutException as e:
-        logging.exception(f"TimeoutException: {str(e)}")
-        raise  # Re-raise the exception to stop the test in case of failure
-
     except Exception as e:
         logging.exception(f"Exception occurred: {str(e)}")
         raise  # Re-raise the exception to stop the test in case of failure

@@ -92,10 +92,6 @@ def test_signup(driver, temp_email_store):
 
         assert driver.current_url == Locators.IMPAK_URL, "Not redirected to login after logout"
 
-    except TimeoutException as e:
-        logging.exception(f"TimeoutException: {str(e)}")
-        raise  # Re-raise the exception to stop the test in case of failure
-
     except Exception as e:
         logging.exception(f"Exception occurred: {str(e)}")
         raise  # Re-raise the exception to stop the test in case of failure

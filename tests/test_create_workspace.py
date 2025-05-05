@@ -38,10 +38,6 @@ def test_create_workspace(driver):
         assert choose_workspace.is_enabled(), "Open button not clickable"
         choose_workspace.click()
 
-    except TimeoutException as e:
-        logging.exception(f"TimeoutException: {str(e)}")
-        raise  # Re-raise the exception to stop the test in case of failure
-
     except Exception as e:
         logging.exception(f"Exception occurred: {str(e)}")
         raise  # Re-raise the exception to stop the test in case of failure
