@@ -59,37 +59,45 @@ class Locators:
     EMPLOYEE_LASTNAME_VALUE = "Testing"
 
     # ADD SURVEY LOCATORS
-    SIDEBAR_DASHBOARD = By.XPATH, "//li[a//span[text()='Dashboard']]"
-    SIDEBAR_SURVEYS = By.XPATH, "//li[a//span[text()='Surveys']]"
-    SIDEBAR_ONGOING = By.XPATH, "//li[a//span[text()='Surveys']]//a[.//span[text()='Ongoing']]"
-    CREATE_SURVEY_BTN = By.XPATH, "//button[span[text()='Create Survey']]"
-    SURVEY_OPTION = By.XPATH, "//a[@href='/frameworks']"
-    ONBOARD_BTN = By.XPATH, "//button[div[text()='ONBOARD']]"
-    USE_BTN = By.XPATH, "//a[normalize-space(text())='Use']"
-    SETUP_BTN = By.XPATH, "//div[h1[contains(text(), '1. Setup')]]"
-    SURVEY_NAME = By.ID, "name"
-    SUBMISSION = By.ID, "countAllowedSubmissions"
-    RESPONDENTS_BTN = By.XPATH, "//div[h1[contains(text(), '2. Respondents')]]"
-    TOGGLE_PUBLIC = By.XPATH, "//div[@class='w-10 h-4 bg-gray-400 rounded-full shadow-inner']"
-    PUBLISH_BTN = By.XPATH, "//button[contains(text(), 'Publish')]"
-    PUBLISH_CONFIRM_BTN = By.XPATH, "//button[contains(@class, 'swal2-confirm') and text()='Yes']"
-    MARK_AS_DONE_BTN = By.XPATH, "//button[contains(@class, 'swal2-confirm') and contains(text(), 'Mark as Completed')]"
+    SIDEBAR_DASHBOARD = (By.XPATH, "//li[a//span[text()='Dashboard']]")
+    SIDEBAR_SURVEYS = (By.XPATH, "//span[normalize-space(text())='Surveys']")
+    SIDEBAR_ONGOING = (By.XPATH, "//li[a//span[text()='Surveys']]//a[.//span[text()='Ongoing']]")
+    CREATE_SURVEY_BTN = (By.XPATH, "//button[span[text()='Create Survey']]")
+    SURVEY_OPTION = (By.XPATH, "//a[@href='/frameworks']")
+    ONBOARD_BTN = (By.XPATH, "//button[div[text()='ONBOARD']]")
+    USE_BTN = (By.XPATH, "//a[normalize-space(text())='Use']")
+    SETUP_BTN = (By.XPATH, "//div[h1[contains(text(), '1. Setup')]]")
+    SURVEY_NAME = (By.ID, "name")
+    SUBMISSION = (By.ID, "countAllowedSubmissions")
+    RESPONDENTS_BTN = (By.XPATH, "//div[h1[contains(text(), '2. Respondents')]]")
+    TOGGLE_PUBLIC = (By.XPATH, "//div[@class='w-10 h-4 bg-gray-400 rounded-full shadow-inner']")
+    PUBLISH_BTN = (By.XPATH, "//button[contains(text(), 'Publish')]")
+    PUBLISH_CONFIRM_BTN = (By.XPATH, "//button[contains(@class, 'swal2-confirm') and text()='Yes']")
+    MARK_AS_DONE_BTN = (By.XPATH, "//button[contains(@class, 'swal2-confirm') and contains(text(), 'Mark as Completed')]")
 
     SURVEY_NAME_VALUE = "Test Survey"
     SUBMISSION_VALUE = "5"
 
     # GROUP LOCATORS
-    SIDEBAR_COMMUNITY = By.XPATH, "//span[text()='Community']" 
-    SIDEBAR_GROUPS = By.XPATH, "//a[.//span[text()='Groups']]"  
-    CREATE_GROUP_BUTTON = By.XPATH, "//button[text()='Create']" 
-    GROUP_NAME_INPUT_FIELD = By.XPATH, "//input[@placeholder='Group Name']"  
-    GROUP_LEADER_DROPDOWN = By.XPATH, "//select[@placeholder='Select Group Leader']"  
-    ADD_NEW_GROUP_BUTTON = By.XPATH, "//button[text()='Add New']"  
+    SIDEBAR_COMMUNITY = (By.XPATH, "//a[.//span[text()='Community']]")
+    SIDEBAR_GROUPS = (By.XPATH, "//a[span[normalize-space(text())='Groups']]")
+    CREATE_GROUP_BUTTON = (By.XPATH, "//button[@class='btn bg-indigo-500 hover:bg-indigo-600 text-white' and @aria-controls='feedback-modal']")
+    GROUP_NAME_INPUT_FIELD = (By.ID, "first_name")
+    GROUP_LEADER_DROPDOWN = (By.XPATH, "//span[text()='Select a user']")
+    GROUP_LEADER_DROPDOWN_OPTION = (By.CSS_SELECTOR, "button[tabindex='1']")
+    ADD_NEW_GROUP_BUTTON = (By.XPATH, "//button[text()='Add New']")
+    TEST_ADD_GROUP = (By.XPATH, "//h2[text()='Testing Group']")
+
+    GROUP_NAME = "Testing Group"
 
     # DEPARTMENT LOCATORS
-    SIDEBAR_COMMUNITY = (By.XPATH, "//span[text()='Community']")
-    SIDEBAR_DEPARTMENTS = (By.XPATH, "//a[.//span[text()='Departments']]")
-    CREATE_BUTTON = (By.XPATH, "//button[text()='Create']")
-    DEPARTMENT_NAME_INPUT_FIELD = (By.XPATH, "//input[@placeholder='Department Name']") 
-    DEPARTMENT_HEAD_DROPDOWN = (By.XPATH, "//select[@placeholder='Select Department Head']")
+    ADD_YOUR_DEPT = (By.XPATH, "//div[@class='flex items-center' and .//h3[text()='Create your departments']]")
+    SIDEBAR_DEPARTMENTS = (By.XPATH, "//a[span[normalize-space(text())='Departments']]")
+    CREATE_BUTTON = (By.XPATH, "//button[@class='btn bg-indigo-500 hover:bg-indigo-600 text-white' and @aria-controls='feedback-modal']")
+    DEPARTMENT_NAME_INPUT_FIELD = (By.ID, "first_name")
+    DEPARTMENT_HEAD_DROPDOWN = (By.XPATH, "//span[text()='Select a user']")
+    DEPARTMENT_HEAD_DROPDOWN_OPTION = (By.CSS_SELECTOR, "button[tabindex='1']")
     ADD_NEW_DEPARTMENT_BUTTON = (By.XPATH, "//button[text()='Add New']")
+    TEST_ADD_DEPT = (By.XPATH, "//h2[text()='Testing Department']")
+
+    DEPARTMENT_NAME = "Testing Department"

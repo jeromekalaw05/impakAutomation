@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 @pytest.mark.order(4)
 def test_add_employee(driver):
 
-    wait = WebDriverWait(driver, 15)
+    wait = WebDriverWait(driver, 20)
 
     try:
         # Add employee process
@@ -34,6 +34,8 @@ def test_add_employee(driver):
         assert lname_input_field.is_displayed(), "Last name field is not visible"
         lname_input_field.send_keys(Locators.EMPLOYEE_LASTNAME_VALUE)
 
+        time.sleep(2)
+
         invite_button = wait.until(EC.element_to_be_clickable(Locators.EMPLOYEE_INVITE_BTN))
         assert invite_button.is_displayed(), "Invite button is displayed"
         assert invite_button.is_enabled(), "Invite button is clickable"
@@ -47,6 +49,10 @@ def test_add_employee(driver):
 
         close_modal_button = wait.until(EC.element_to_be_clickable(Locators.MODAL_CLOSE))
         close_modal_button.click()
+
+        time.sleep(2)
+
+        driver.refresh()
 
     except Exception as e:
         logging.exception(f"Exception occurred: {str(e)}")

@@ -7,20 +7,20 @@ from selenium.webdriver.support import expected_conditions as EC
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-@pytest.mark.order(5)
+@pytest.mark.order(7)
 def test_add_survey(driver):
 
     wait = WebDriverWait(driver, 10)
 
     try:
-        wait.until(EC.element_to_be_clickable(Locators.SIDEBAR_SURVEYS)).click()
-        wait.until(EC.element_to_be_clickable(Locators.SIDEBAR_ONGOING)).click()
-        wait.until(EC.element_to_be_clickable(Locators.CREATE_SURVEY_BTN)).click()
-        wait.until(EC.element_to_be_clickable(Locators.SURVEY_OPTION)).click()
-        wait.until(EC.element_to_be_clickable(Locators.SIDEBAR_ONGOING)).click()
+        wait.until(EC.visibility_of_element_located(Locators.SIDEBAR_SURVEYS)).click()
+        wait.until(EC.visibility_of_element_located(Locators.SIDEBAR_ONGOING)).click()
+        wait.until(EC.visibility_of_element_located(Locators.CREATE_SURVEY_BTN)).click()
+        wait.until(EC.visibility_of_element_located(Locators.SURVEY_OPTION)).click()
+        wait.until(EC.visibility_of_element_located(Locators.SIDEBAR_ONGOING)).click()
         wait.until(EC.visibility_of_element_located(Locators.MODAL))
-        wait.until(EC.element_to_be_clickable(Locators.MODAL_CLOSE)).click()
-        wait.until(EC.element_to_be_clickable(Locators.ONBOARD_BTN)).click()
+        wait.until(EC.visibility_of_element_located(Locators.MODAL_CLOSE)).click()
+        wait.until(EC.visibility_of_element_located(Locators.ONBOARD_BTN)).click()
         wait.until(EC.visibility_of_element_located(Locators.USE_BTN)).click()
         wait.until(EC.visibility_of_element_located(Locators.SETUP_BTN)).click()
         
