@@ -1,4 +1,5 @@
 import logging
+import time
 import pytest
 from pages.universal_locators import Locators
 from selenium.webdriver.support.ui import WebDriverWait
@@ -21,9 +22,15 @@ def test_add_department(driver):
         department_name_input = wait.until(EC.presence_of_element_located(Locators.DEPARTMENT_NAME_INPUT_FIELD))
         department_name_input.send_keys(Locators.DEPARTMENT_NAME)
 
+        time.sleep(1)
+
         wait.until(EC.presence_of_element_located(Locators.DEPARTMENT_HEAD_DROPDOWN)).click()
 
+        time.sleep(1)
+
         wait.until(EC.presence_of_element_located(Locators.DEPARTMENT_HEAD_DROPDOWN_OPTION)).click()
+
+        time.sleep(2)
 
         wait.until(EC.visibility_of_element_located(Locators.ADD_NEW_DEPARTMENT_BUTTON)).click()
 

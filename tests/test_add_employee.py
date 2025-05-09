@@ -26,9 +26,13 @@ def test_add_employee(driver):
         assert email_input_field.is_displayed(), "email field is not visible"
         email_input_field.send_keys(Locators.EMPLOYEE_EMAIL_VALUE)
 
+        time.sleep(1)
+
         fname_input_field = wait.until(EC.visibility_of_element_located(Locators.EMPLOYEE_FIRSTNAME_FIELD))
         assert fname_input_field.is_displayed(), "First name field is not visible"
         fname_input_field.send_keys(Locators.EMPLOYEE_FIRSTNAME_VALUE)
+
+        time.sleep(1)
 
         lname_input_field = wait.until(EC.visibility_of_element_located(Locators.EMPLOYEE_LASTNAME_FIELD))
         assert lname_input_field.is_displayed(), "Last name field is not visible"

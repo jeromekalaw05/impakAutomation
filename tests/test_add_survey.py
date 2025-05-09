@@ -10,18 +10,27 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 @pytest.mark.order(7)
 def test_add_survey(driver):
 
-    wait = WebDriverWait(driver, 10)
+    wait = WebDriverWait(driver, 20)
 
     try:
-        wait.until(EC.visibility_of_element_located(Locators.SIDEBAR_SURVEYS)).click()
+        survey = driver.find_element(*Locators.SIDEBAR_SURVEYS)
+        survey.click()
+        # wait.until(EC.element_to_be_clickable(Locators.SIDEBAR_SURVEYS)).click()
+
         wait.until(EC.visibility_of_element_located(Locators.SIDEBAR_ONGOING)).click()
+
         wait.until(EC.visibility_of_element_located(Locators.CREATE_SURVEY_BTN)).click()
+
         wait.until(EC.visibility_of_element_located(Locators.SURVEY_OPTION)).click()
-        wait.until(EC.visibility_of_element_located(Locators.SIDEBAR_ONGOING)).click()
+
         wait.until(EC.visibility_of_element_located(Locators.MODAL))
+
         wait.until(EC.visibility_of_element_located(Locators.MODAL_CLOSE)).click()
+
         wait.until(EC.visibility_of_element_located(Locators.ONBOARD_BTN)).click()
+
         wait.until(EC.visibility_of_element_located(Locators.USE_BTN)).click()
+
         wait.until(EC.visibility_of_element_located(Locators.SETUP_BTN)).click()
         
         survey_name = wait.until(EC.visibility_of_element_located(Locators.SURVEY_NAME))
@@ -44,5 +53,20 @@ def test_add_survey(driver):
         assert mark_as_done_btn.is_displayed(), "Survey not created"
 
     except Exception as e:
-        logging.exception(f"Exception occurred: {str(e)}")
-        raise  # Re-raise the exception to stop the test in case of failure
+        try:
+            iframe = driver.find_element("tag name", "iframe")
+            driver.switch_to.frame(iframe)
+            iframe_content = driver.page_source
+            driver.switch_to.default_content()
+
+            if "SERVER ERROR 500" in iframe_content or "Server Error" in iframe_content:
+                msg = "Server Error 500 encountered."
+                logging.error(msg)
+                pytest.fail(msg)
+        except Exception as iframe_error:
+            logging.warning(f"Could not inspect iframe content: {iframe_error}")
+
+        # Fallback if iframe logic fails or it's not a 500 error
+        msg = f"Unexpected exception occurred: {str(e)}"
+        logging.exception(msg)
+        pytest.fail(msg)
