@@ -54,7 +54,3 @@ Pull requests are welcome! If you find bugs or want to improve test coverage, fe
 ## 📌 Note
 
 This project is built for **educational and learning purposes**, especially to explore real-world applications of **test automation** using modern Python frameworks.
-
----
-
-Let me know if you'd like to add badges, GitHub Actions CI/CD setup, or a sample screenshot/gif of a test run!
